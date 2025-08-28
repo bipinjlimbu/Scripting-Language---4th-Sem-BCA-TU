@@ -11,7 +11,7 @@ while (temp > 0) {
 }
 
 if (sum === num) {
-    console.log(num+" is an Armstrong number")
+    console.log(num+" is an Armstrong number");
 } else {
-    console.log(num+" is not an Armstrong number")
+    console.log(num+" is not an Armstrong number");
 }
