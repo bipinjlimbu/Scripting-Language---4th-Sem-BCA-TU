@@ -16,3 +16,12 @@ console.log("\nFor-in Loop");
 for (let i in obj){
     console.log(`${i} : ${obj[i]}`)
 }
+
+//For-of Loop
+const ofbj = [1,2,3,4]
+let mul = 1;
+console.log("\nFor-of Loop");
+for (let i of ofbj){
+    mul *= i;
+}
+console.log(mul);
