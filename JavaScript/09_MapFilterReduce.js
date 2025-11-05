@@ -4,3 +4,10 @@ let a = arr.map((value,index,a)=>{
     return value+index;
 })
 console.log(a);
+
+//Filter
+let b = arr.filter((v)=>{
+    return v>2;
+})
+
+console.log(b);
