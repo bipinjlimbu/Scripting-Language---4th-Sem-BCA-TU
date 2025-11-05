@@ -11,3 +11,10 @@ let b = arr.filter((v)=>{
 })
 
 console.log(b);
+
+//Reduce
+let c = arr.reduce((n1,n2)=>{
+    return n1+n2;
+})
+
+console.log(c);
