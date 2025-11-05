@@ -1,6 +1,6 @@
 //WAP to find BMI using function
 function calculateBMI(weight,height){
-    let BMI = weight/height;
+    let BMI = weight/(height*height);
     return BMI;
 }
 console.log(`Body Mass Index of Bipin:${calculateBMI(69,1.82)}`)
