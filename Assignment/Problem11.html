@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 11</title>
+</head>
+<body>
+    <label for="inp"> Insert any number: </label>
+    <input type="number" id="inp" />
+    <button onclick="insert()">Insert</button>
+    <script>
+        const list = [];
+        function insert(){
+            inputNumber = document.getElementById("inp").value;
+            list.push(Number(inputNumber));
+            console.log(list);
+            document.getElementById("inp").value = "";
+        }
+    </script>
+</body>
+</html>
