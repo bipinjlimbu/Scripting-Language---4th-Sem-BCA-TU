@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex</title>
+</head>
+<body>
+    <p id="box"></p>
+    <input type="text" id="inp"/>
+    <button onclick="yeah()"> Input </button>
+    <script>
+        box = document.getElementById("box");
+        pattern = /[a-z]/g;
+        function yeah() {
+            inp = document.getElementById("inp").value;
+            result = inp.match(pattern);
+            box.innerHTML = result;
+        }
+    </script>
+</body>
+</html>
