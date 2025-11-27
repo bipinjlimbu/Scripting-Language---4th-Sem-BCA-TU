@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Labwork 14</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
 </head>
 <body>
     <h1>To Do List</h1>
@@ -32,7 +38,11 @@
 
         function toggleTask(checkbox) {
             const li = checkbox.parentElement;
-            li.style.textDecoration = checkbox.checked ? "line-through" : "none";
+            if (checkbox.checked) {
+                li.querySelector("span").classList.add("completed");
+            } else {
+                li.querySelector("span").classList.remove("completed");
+            }
         }
 
         function deleteTask(button) {

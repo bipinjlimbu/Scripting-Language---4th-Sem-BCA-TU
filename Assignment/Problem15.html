@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 15</title>
+</head>
+<body>
+    <input type="text" id="color">
+    <button onclick="changeBG()"> Change </button>
+    <button onclick="changeWindow()"> Open New Window </button>
+    <script>
+        function changeBG() {
+            color = document.getElementById("color");
+            document.body.style.backgroundColor = color.value.trim();
+            color.value = "";
+        }
+        function changeWindow(){
+            window.open("https://www.google.com", "_blank");
+        }
+    </script>
+</body>
+</html> 
