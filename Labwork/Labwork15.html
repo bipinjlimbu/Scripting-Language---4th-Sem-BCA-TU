@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labwork 15</title>
+</head>
+<body>
+    <h1> Labwork 15 </h1>
+    <form>
+        <label for="email"> Email: </label>
+        <input type="text" id="email"><br>
+        <p class="result"></p>
+        <label for="age"> Age: </label>
+        <input type="text" id="age"><br>
+        <p class="result"></p>
+        <label for="password"> Password: </label>
+        <input type="password" id="password"><br>
+        <p class="result"></p> 
+        <label for="confirmPassword"> Confirm Password: </label>
+        <input type="password" id="confirmPassword"><br>
+        <p class="result"></p>
+        <label for="zipCode"> Zip Code: </label>
+        <input type="text" id="zipCode"><br>
+        <p class="result"></p>
+        <label for="url"> URL: </label>
+        <input type="text" id="url"><br>
+        <p class="result"></p>
+        <label for="date"> Date: </label>
+        <input type="date" id="date"><br>
+        <p class="result"></p>
+        <label for="file"> File: </label>
+        <input type="file" name="file" id="file"><br>
+        <p class="result"></p>
+        <label for="country"> Country: </label>
+        <select name="country" id="country">
+            <option value="">--Select Country--</option>
+            <option value="nepal">Nepal</option>
+            <option value="usa">USA</option>
+            <option value="canada">Canada</option>
+            <option value="uk">UK</option>
+            <option value="australia">Australia</option>
+            <option value="india">India</option>
+        </select><br>
+        <p class="result"></p>
+        <p> Terms and Conditions </p>
+        <input type="checkbox" name="terms" id="terms"> I agree to the terms and conditions<br>
+        <p class="result"></p>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        const email = document.getElementById("email");
+        const age = document.getElementById("age");
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirmPassword");
+        const zipCode = document.getElementById("zipCode");
+        const url = document.getElementById("url");
+        const date = document.getElementById("date");
+        const file = document.getElementById("file");
+        const country = document.getElementById("country");
+        const terms = document.getElementById("terms");
+        const form = document.querySelector("form");
+        const result = document.querySelectorAll(".result");
+
+        form.addEventListener("submit",function(e){
+            e.preventDefault();
+
+            emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if(!emailPattern.test(email.value)){
+                result[0].textContent = "Invalid Email";
+                email.style.border = "2px solid red";
+                result[0].style.color = "red";
+            } else {
+                result[0].textContent = "valid Email";
+                email.style.border = "2px solid green";
+                result[0].style.color = "green";
+            }
+
+            agePattern = /^(120|1[01][0-9]|[1-9]?[1-9])$/;
+            if(!agePattern.test(age.value)){
+                result[1].textContent = "Invalid Age";
+                age.style.border = "2px solid red";
+                result[1].style.color = "red";
+            } else {
+                result[1].textContent = "valid Age";
+                age.style.border = "2px solid green";
+                result[1].style.color = "green";
+            }
+
+            passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if(!passwordPattern.test(password.value)){
+                result[2].textContent = "Invalid Password";
+                password.style.border = "2px solid red";
+                result[2].style.color = "red";
+            } else {
+                result[2].textContent = "valid Password";
+                password.style.border = "2px solid green";
+                result[2].style.color = "green";
+            }
+
+            if(password.value !== confirmPassword.value || confirmPassword.value === ""){
+                result[3].textContent = "Passwords do not match";
+                confirmPassword.style.border = "2px solid red";
+                result[3].style.color = "red";
+            } else {
+                result[3].textContent = "Passwords match";
+                confirmPassword.style.border = "2px solid green";
+                result[3].style.color = "green";
+            }
+
+            zipCodePattern = /^\d{5}(-\d{4})?$/;
+            if(!zipCodePattern.test(zipCode.value)){
+                result[4].textContent = "Invalid Zip Code";
+                zipCode.style.border = "2px solid red"; 
+                result[4].style.color = "red";
+            } else {
+                result[4].textContent = "valid Zip Code";
+                zipCode.style.border = "2px solid green";
+                result[4].style.color = "green";
+            }
+
+            urlPattern = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/;
+            if(!urlPattern.test(url.value)){
+                result[5].textContent = "Invalid URL";
+                url.style.border = "2px solid red";
+                result[5].style.color = "red";
+            } else {
+                result[5].textContent = "valid URL";
+                url.style.border = "2px solid green";
+                result[5].style.color = "green";
+            }
+
+            const currentDate = new Date();
+            const inputDate = new Date(date.value);
+            if(inputDate > currentDate){
+                result[6].textContent = "Invalid Date";
+                date.style.border = "2px solid red";
+                result[6].style.color = "red";
+            } else {
+                result[6].textContent = "valid Date";
+                date.style.border = "2px solid green";
+                result[6].style.color = "green";
+            }
+
+            if(file.files.length > 0){
+                const fileSize = file.files[0].size / 1024 / 1024;
+                if(fileSize > 4){
+                    result[7].textContent = "File size exceeds 4MB";
+                    file.style.border = "2px solid red";
+                    result[7].style.color = "red";
+                } else {
+                    result[7].textContent = "valid File";
+                    file.style.border = "2px solid green";
+                    result[7].style.color = "green";
+                }
+            } else {
+                result[7].textContent = "No file selected";
+                file.style.border = "2px solid red";
+                result[7].style.color = "red";
+            }
+
+            if(country.value === ""){
+                result[8].textContent = "Please select a country";
+                country.style.border = "2px solid red";
+                result[8].style.color = "red";
+            } else {
+                result[8].textContent = "Country selected";
+                country.style.border = "2px solid green";
+                result[8].style.color = "green";
+            }
+
+            if(!terms.checked){
+                result[9].textContent = "You must agree to the terms and conditions";
+                result[9].style.color = "red";
+            } else {
+                result[9].textContent = "Terms and conditions accepted";
+                result[9].style.color = "green";
+            }
+        })
+    </script>
+</body>
+</html>
