@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labwork 14</title>
+</head>
+<body>
+    <h1>Labwork 14</h1>
+    <h2>Filter:</h2>
+    <p>Category:</p>
+    <select id="categoryFilter">
+        <option value="all">All</option>
+        <option value="fruit">Fruit</option>
+        <option value="vegetable">Vegetable</option>
+        <option value="dairy">Dairy</option>
+    </select>
+    <p>Price Range:</p>
+    <select id="priceFilter">
+        <option value="all">All</option>
+        <option value="0-5">$0 - $5</option>
+        <option value="6-10">$6 - $10</option>
+        <option value="10+">$10+</option>
+    </select>
+    <button onclick="applyFilters()">Apply Filters</button>
+    <ol id="itemsList"></ol>
+
+    <script>
+        const products = [
+            { name: "Apple", category: "fruit", price: 3 },
+            { name: "Banana", category: "fruit", price: 2 },
+            { name: "Carrot", category: "vegetable", price: 4 },
+            { name: "Broccoli", category: "vegetable", price: 5 },
+            { name: "Milk", category: "dairy", price: 6 },
+            { name: "Cheese", category: "dairy", price: 8 },
+            { name: "Steak", category: "meat", price: 15 }
+        ];
+
+        const categoryFilter = document.getElementById('categoryFilter');
+        const priceFilter = document.getElementById('priceFilter');
+        const itemsList = document.getElementById('itemsList');
+
+        function applyFilters() {
+            const selectedCategory = categoryFilter.value;
+            const selectedPrice = priceFilter.value;
+
+            let filteredProducts = products;
+
+            if (selectedCategory !== 'all') {
+                filteredProducts = filteredProducts.filter(product => product.category === selectedCategory);
+            }
+
+            if (selectedPrice !== 'all') {
+                filteredProducts = filteredProducts.filter(product => {
+                    if (selectedPrice === '0-5') return product.price >= 0 && product.price <= 5;
+                    if (selectedPrice === '6-10') return product.price > 5 && product.price <= 10;
+                    if (selectedPrice === '10+') return product.price > 10;
+                });
+            }
+
+            displayProducts(filteredProducts);
+        }
+
+        function displayProducts(products) {
+            itemsList.innerHTML = '';
+            products.forEach(product => {
+                const li = document.createElement('li');
+                li.innerHTML = `${product.name} - $${product.price}`;
+                itemsList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
