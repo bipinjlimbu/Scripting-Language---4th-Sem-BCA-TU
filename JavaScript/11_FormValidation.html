@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+<body>
+    <h1> Form Validation YEAHHHHHH!!!!!!! </h1>
+    <form>
+        <label for="username"> Username: </label>
+        <input type="text" name="username" id="username" placeholder="Enter your username NIGGA"><br><span class="result"></span><br>
+        <label for="email"> Email: </label>
+        <input type="text" name="email" id="email" placeholder="Enter your email NIGGA"><br><span class="result"></span><br>
+        <label for="phone"> Phone: </label>
+        <input type="text" name="phone" id="phone" placeholder="Enter your phone NIGGA"><br><span class="result"></span><br>
+        <label for="address"> Address: </label>
+        <input type="text" name="address" id="address" placeholder="Enter your address NIGGA"><br><span class="result"></span><br>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        const form = document.querySelector("form");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById("username");
+            const email = document.getElementById("email");
+            const phone = document.getElementById("phone");
+            const address = document.getElementById("address");
+            const result = document.querySelectorAll(".result");
+
+            const usernamePattern = /^[a-zA-Z0-9_]{5,15}$/;
+            const isUsernameValid = usernamePattern.test(username.value);
+            if (!isUsernameValid) {
+                username.style.borderColor = "red";
+                result[0].textContent = "Username must be 5-15 characters long and can only contain letters, numbers, and underscores.";
+            }
+            else{
+                username.style.borderColor = "green";
+                result[0].textContent = "";
+            }
+
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const isEmailValid = emailPattern.test(email.value);
+            if (!isEmailValid) {
+                email.style.borderColor = "red";
+                result[1].textContent = "Please enter a valid email address.";
+            }
+            else{
+                email.style.borderColor = "green";
+                result[1].textContent = "";
+            }
+
+            const phonePattern = /^\d{10}$/;
+            const isPhoneValid = phonePattern.test(phone.value);
+            if (!isPhoneValid) {
+                phone.style.borderColor = "red";
+                result[2].textContent = "Phone number must be 10 digits.";
+            }
+            else{
+                phone.style.borderColor = "green";
+                result[2].textContent = "";
+            }
+
+            const addressPattern = /^.{10,}$/;
+            const isAddressValid = addressPattern.test(address.value);
+            if (!isAddressValid) {
+                address.style.borderColor = "red";
+                result[3].textContent = "Address must be at least 10 characters long.";
+            }
+            else{
+                address.style.borderColor = "green";
+                result[3].textContent = "";
+            }
+        });
+    </script>
+</body>
+</html>
