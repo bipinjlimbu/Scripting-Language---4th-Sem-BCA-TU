@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form action="form.php" method="POST">
+    <form action="formx.php" method="POST">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
         <br><br>
