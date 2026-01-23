@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <p id="content">This is Content.</p>
+    <button id="slideDown">Slide Down</button>
+    <button id="slideUp">Slide Up</button>
+    <button id="slideToggle">Slide Toggle</button>
+    <script>
+        $(document).ready(function () {
+            $("#slideDown").click(function () {
+                $("#content").slideDown();
+            });
+            $("#slideUp").click(function () {
+                $("#content").slideUp();
+            });
+            $("#slideToggle").click(function () {
+                $("#content").slideToggle();
+            });
+        });
+    </script>
+</body>
+
+</html>
