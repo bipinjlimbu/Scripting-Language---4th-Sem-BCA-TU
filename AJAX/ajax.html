@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+    <script>
+        function loadContent() {
+            const xhr = new XMLHttpRequest();
+            const form = document.getElementById('myForm');
+            const formData = new FormData(form);
+            xhr.open('POST', 'ajax.php');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById('result').innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send(formData);
+        }
+    </script>
+</head>
+
+<body>
+    <form id="myForm">
+        Name: <input type="text" name="name" value="Bipin">
+        Age: <input type="text" name="age" value="19">
+        <input type="submit" value="Submit">
+    </form>
+    <div id="result">
+        <h1>AJAX Page</h1>
+        <p>This content was loaded via AJAX.</p>
+    </div>
+    <button onclick="loadContent()">Load Content via AJAX</button>
+</body>
+
+</html>
