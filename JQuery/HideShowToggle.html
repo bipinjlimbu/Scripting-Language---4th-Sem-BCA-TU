@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <p id="content">This is Content.</p>
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+    <button id="toggle">Toggle</button>
+    <script>
+        $(document).ready(function () {
+            $("#hide").click(function () {
+                $("#content").hide();
+            });
+            $("#show").click(function () {
+                $("#content").show();
+            });
+            $("#toggle").click(function () {
+                $("#content").toggle();
+            });
+        });
+    </script>
+</body>
+
+</html>
