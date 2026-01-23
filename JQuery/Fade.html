@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fade Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <p id="content">This is Content.</p>
+    <button id="fadeIn">Fade In</button>
+    <button id="fadeOut">Fade Out</button>
+    <button id="fadeToggle">Fade Toggle</button>
+    <script>
+        $(document).ready(function () {
+            $("#fadeIn").click(function () {
+                $("#content").fadeIn();
+            });
+            $("#fadeOut").click(function () {
+                $("#content").fadeOut();
+            });
+            $("#fadeToggle").click(function () {
+                $("#content").fadeToggle();
+            });
+        });
+    </script>
+</body>
+
+</html>
