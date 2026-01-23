@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <form id="myForm" method="POST">
+        <label> Phone: </label>
+        <input type="text" name="phone" required>
+        <input type="submit" value="Submit">
+    </form>
+    <p id="response"> Result Here</p>
+    <script>
+        myForm = document.getElementById("myForm");
+        myForm.onsubmit = function (e) {
+            e.preventDefault();
+            formData = new FormData(myForm);
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "check.php");
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("response").innerText = this.responseText;
+                }
+            };
+            xhr.send(formData);
+        };
+    </script>
+</body>
+
+</html>
