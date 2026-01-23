@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <p id="content">This is Content.</p>
+    <button id="hide">Hide with Callback</button>
+    <script>
+        $(document).ready(function () {
+            $("#hide").click(function () {
+                $("#content").hide(1000, function () {
+                    alert("The content is now hidden.");
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
